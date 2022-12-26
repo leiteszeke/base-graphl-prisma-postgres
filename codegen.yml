@@ -1,0 +1,13 @@
+overwrite: true
+schema: "./src/schemas/*.graphql"
+require:
+  - ts-node/register
+generates:
+  ./src/generated/schema.graphql:
+    plugins:
+      - "schema-ast"
+  ./src/generated/types.ts:
+    config:
+      contextType: ../../resolvers/context#Context
+    plugins:
+      - "typescript"
